@@ -16,3 +16,24 @@ local boss = colossus
 utils.printCreature(boss)
 
 -- Começar o loop da batalha
+while true do
+
+    -- Mostrar ações para o jogador
+    -- TODO
+
+    -- Simular o turno do jogador
+    --TODO
+
+    -- Ponto de saída: criatura ficou sem vida
+    if boss.health <= 0 then
+        break
+    end
+
+    -- Simular o turno da criatura
+    --TODO
+    
+    -- Ponto de saída: jogador ficou sem vida
+    if player.health <= 0 then
+        break
+    end
+end
