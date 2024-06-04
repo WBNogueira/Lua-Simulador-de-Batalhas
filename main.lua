@@ -3,7 +3,7 @@ local utils = require("utils")
 local player = require("player.player")
 local playerActions = require("player.actions")
 local colossus = require("colossus.colossus")
---local colossusActions = require("colossus.actions")
+local colossusActions = require("colossus.actions")
 
 -- Habilitar UTF-8 no terminal
 utils.enableUtf8()
@@ -13,13 +13,14 @@ utils.printHeader()
 
 -- Obter definição do monstro
 local boss = colossus
+local bossActions = colossusActions
 
 -- Apresentar o monstro
 utils.printCreature(boss)
 
 -- Build actions
 playerActions.build()
---bossActions.build()
+bossActions.build()
 
 -- Começar o loop da batalha
 while true do
@@ -49,9 +50,9 @@ while true do
 
     -- Simular o turno da criatura
     print()
-    --local validBossActions = bossActions.getValidActions(player, boss)
-    --local bossAction = validBossActions[math.random(#validBossActions)]
-    --bossAction.execute(player, boss)
+    local validBossActions = bossActions.getValidActions(player, boss)
+    local bossAction = validBossActions[math.random(#validBossActions)]
+    bossAction.execute(player, boss)
     
     -- Ponto de saída: jogador ficou sem vida
     if player.health <= 0 then
