@@ -24,7 +24,6 @@ bossActions.build()
 
 -- Começar o loop da batalha
 while true do
-
     -- Mostrar ações para o jogador
     print()
     print(string.format("Qual será a próxima ação de %s?", player.name))
@@ -53,11 +52,14 @@ while true do
     local validBossActions = bossActions.getValidActions(player, boss)
     local bossAction = validBossActions[math.random(#validBossActions)]
     bossAction.execute(player, boss)
-    
+
     -- Ponto de saída: jogador ficou sem vida
     if player.health <= 0 then
         break
     end
+
+    
+end
 
 -- Processar condições de vitória e derrota
 if player.health <= 0 then
@@ -76,6 +78,4 @@ elseif boss.health <= 0 then
     print(string.format("%s prevaleceu e venceu %s.", player.name, boss.name))
     print("Parabéns!!!")
     print()
-end
-
 end
